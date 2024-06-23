@@ -1,0 +1,10 @@
+.search-field {
+    background-color: var(--dark-bg);
+    display: flex;
+    justify-content:flex-end;
+    padding: 15px 0;
+}
+
+.search {
+    margin: 5px 155px;
+}
