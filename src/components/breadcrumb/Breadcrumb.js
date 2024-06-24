@@ -1,15 +1,15 @@
 import { Breadcrumb } from 'antd';
 import "./breadcrumb.css";
 
-const Breadcrumbs = () => (
+const Breadcrumbs = ({link, titleRef, name}) => (
 <div className='breadcrumbs'>
   <Breadcrumb
     items={[
       {
-        title: <a href="./../../pages/Leagues.js">Лиги</a>,
+        title: <a href={link}>{titleRef}</a>,
       },
       {
-        title: 'Название лиги',
+        title: name,
       },
     ]}
     />

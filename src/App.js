@@ -9,7 +9,7 @@ import TeamCalendar from "./pages/TeamCalendar";
 function App() {
   return (
     <div className="App">
-    <TeamCalendar />
+    <LeagueCalendar />
     
 
     </div>

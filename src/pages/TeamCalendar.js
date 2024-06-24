@@ -7,7 +7,7 @@ const LeagueCalendar = () => {
     return (
         <>
         <Header/>
-        <Breadcrumbs />
+        <Breadcrumbs link={"./Teams"} titleRef={'Команды'} name={'Название команды'}/>
         <strong className="matches">Матчи</strong>
         <Date/>
         <MatchTable/>
