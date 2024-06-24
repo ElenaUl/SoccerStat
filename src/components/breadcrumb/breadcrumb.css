@@ -1,0 +1,5 @@
+.breadcrumbs {
+    display: flex;
+    justify-content:flex-start;
+    padding: 10px 30px;
+}

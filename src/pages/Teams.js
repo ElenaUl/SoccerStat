@@ -1,25 +1,27 @@
 import Header from "../components/header/Header";
-import LeagueItem from "../components/leagueItem/LeagueItem";
 import SearchField from "../components/searchField/SearchField";
+import Item from "../components/item/Item";
+import {items} from "./../helpers/itemsList";
+import { Pagination } from "antd";
 
-import {leagues} from "../helpers/leagueList"
 
-const Leagues = () => {
+const Teams = () => {
     return (
         <>
             <Header />
             <SearchField />
-            <main className="leagues">
+            <main className="items">
             <div className="container">
-                <ul className="leagues-list">
-                    {leagues.map((leagueItem) => {
-                        return <LeagueItem title={leagueItem.title} country={leagueItem.country}/>
-                    })}
+                <ul className="items-list">
+                    {items.map((item) => {
+                        return <Item teamTitle={item.teamTitle} image={item.img} />;
+                    })}                    
                 </ul>
             </div>
             </main>
+            <Pagination />
         </>
     );
 }
  
-export default Leagues;
+export default Teams;

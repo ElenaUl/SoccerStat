@@ -55,10 +55,18 @@ html, body {
     max-width: 1200px;
 }
 
+/* League/Team Calendar */
+
+.matches {
+    display: flex;
+    justify-content:flex-start;
+    padding: 10px 30px;
+    font-family: "DM Sans", sans-serif;
+}
 
 
 
-/* Leagues */
+
 
 
 

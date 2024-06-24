@@ -1,0 +1,6 @@
+.pagination {
+    background-color: var(--dark-bg);
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
