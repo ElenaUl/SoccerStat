@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Leagues />}/>
         <Route path="/teams" element={<Teams />}/>
-        <Route path="/leagueCalendar" element={<LeagueCalendar />}/>
-        <Route path="/teamCalendar" element={<TeamCalendar />}/>
+        <Route path="/leagueCalendar/:id/:name" element={<LeagueCalendar />}/>
+        <Route path="/teamCalendar/:id" element={<TeamCalendar />}/>
       </Routes>
     </div>
   )

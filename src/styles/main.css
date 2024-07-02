@@ -32,17 +32,25 @@
 } */
 
 :root {
-    --black: #171718;
-    --yellow-border: #D6CE15;
+    --lighBlue: #b6cbe4;
+    --blueSteel: #5884BF;
+    --niagara: #31587f;
+    --orange: #FF8C00;
     --white: #fff;
     --green: #53900F;
     --dark-yellow: #A4A71E;
 
-    --dark-bg: var(--black);
-    --border: var(--yellow-border);
+    --mainBgd: var(--lighBlue);
+    --accentBgd: var(--blueSteel);
+    --accentColor: var(--niagara);
+    --linkColor: var(--orange);
     --header-text: var(--white);
     --accent: var(--green);
     --item-border: var(--dark-yellow)
+}
+
+.App {
+  background-color: var(--mainBgd);
 }
 
 html, body {

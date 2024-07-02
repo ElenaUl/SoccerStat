@@ -4,7 +4,7 @@ import SearchField from "../components/searchField/SearchField";
 import Item from "../components/item/Item";
 import { Pagination } from "antd";
 import { NavLink } from "react-router-dom";
-import { FetchData } from "../connection"
+import { FetchData } from "../connection";
 
 const Teams = () => {
     const [page, setPage] = useState(1);
@@ -30,18 +30,19 @@ const Teams = () => {
                     data.teams.map((team, index) => {
                         const mmax = Math.min(max, data.count);
                         const ret = (index >= min && index < mmax)
-                        ? <li key={team.id}>
-                            <NavLink to="/teamCalendar">
+                        ? <li key={index}>
+                            <NavLink to={`/teamCalendar/${team.id}`}>
                             <Item teamTitle={team.name} image={team.crest} />;
                             </NavLink>
                         </li>
-                        : <></>
+                        : ''
                         return ret;
                     })}                    
                 </ul>
             </div>
             </main>
             <Pagination
+                align="center"
                 current={page}
                 defaultPageSize={pageSize}
                 total={data ? data.count : 1}
