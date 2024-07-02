@@ -70,7 +70,10 @@ const columns = [
             } else if (status === 'SUSPENDED') {
                 color = 'GoldenRod';
                 status = 'Приостановлен'
-            } 
+            } else if (status === 'TIMED') {
+              color = 'GoldenRod';
+              status = 'Назначение времени'
+            }
             return (
               <Tag color={color} key={status}>
                 {status}
@@ -106,12 +109,13 @@ const columns = [
 const LeagueCalendar = () => {
     const params = useParams();
     const id = params.id;
+    const name = params.name;
     const {data} = FetchData(`teams/${id}/matches`);
     
     return (
         <>
         <Header/>
-        <Breadcrumbs link={"./Teams"} titleRef={'Команды'} name={data.name ? data.name : ''}/>
+        <Breadcrumbs link={"./Teams"} titleRef={'Команды'} name={name}/>
         <strong className="matches">Матчи</strong>
         <DatePicker />
         <Table columns={columns} dataSource={data.matches}/>

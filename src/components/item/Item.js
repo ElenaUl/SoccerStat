@@ -6,14 +6,15 @@ const Item = ({leagueTitle, country, teamTitle, image}) => (
         className="item"
         style={{
           width: 300,
+          height: 250
         }}
       >
         <h3 className="item-title">{leagueTitle}</h3>
         <h3 className="country">{country}</h3>
         <h3 className="item-title">{teamTitle}</h3>
-        <img
+        {image && <img className="teamLogo"
             src={image}
-        />
+        />}
       </Card>
     );
 

@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Leagues />}/>
         <Route path="/teams" element={<Teams />}/>
         <Route path="/leagueCalendar/:id/:name" element={<LeagueCalendar />}/>
-        <Route path="/teamCalendar/:id" element={<TeamCalendar />}/>
+        <Route path="/teamCalendar/:id/:name" element={<TeamCalendar />}/>
       </Routes>
     </div>
   )

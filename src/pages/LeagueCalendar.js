@@ -69,7 +69,10 @@ const columns = [
             } else if (status === 'SUSPENDED') {
                 color = 'GoldenRod';
                 status = 'Приостановлен'
-            } 
+            } else if (status === 'TIMED') {
+              color = 'GoldenRod';
+              status = 'Назначение времени'
+            }
             return (
               <Tag color={color} key={status}>
                 {status}

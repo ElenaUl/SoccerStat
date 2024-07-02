@@ -36,6 +36,7 @@
     --blueSteel: #5884BF;
     --niagara: #31587f;
     --orange: #FF8C00;
+    --nightBlue: #233448;
     --white: #fff;
     --green: #53900F;
     --dark-yellow: #A4A71E;
@@ -44,6 +45,7 @@
     --accentBgd: var(--blueSteel);
     --accentColor: var(--niagara);
     --linkColor: var(--orange);
+    --itemText: var(--nightBlue);
     --header-text: var(--white);
     --accent: var(--green);
     --item-border: var(--dark-yellow)
@@ -71,7 +73,6 @@ html, body {
     padding: 10px 30px;
     font-family: "DM Sans", sans-serif;
 }
-
 
 
 

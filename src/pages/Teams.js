@@ -31,8 +31,8 @@ const Teams = () => {
                         const mmax = Math.min(max, data.count);
                         const ret = (index >= min && index < mmax)
                         ? <li key={index}>
-                            <NavLink to={`/teamCalendar/${team.id}`}>
-                            <Item teamTitle={team.name} image={team.crest} />;
+                            <NavLink to={`/teamCalendar/${team.id}/${team.name}`}>
+                            <Item teamTitle={team.name} image={team.crest} />
                             </NavLink>
                         </li>
                         : ''
