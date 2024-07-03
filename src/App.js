@@ -1,4 +1,6 @@
 import "./styles/main.css";
+import "./styles/responsive.css";
+
 import { Route, Routes } from 'react-router-dom';
 
 import * as React from 'react';

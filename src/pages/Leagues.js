@@ -6,6 +6,8 @@ import { Pagination } from "antd";
 import { NavLink } from "react-router-dom";
 import { FetchData } from "../connection";
 
+
+
 const Leagues = () => {
     const [page, setPage] = useState(1);
     const [min, setMin] = useState(0);
@@ -42,7 +44,6 @@ const Leagues = () => {
             </div>
             </main>
             <Pagination
-                align="center"
                 current={page}
                 defaultPageSize={pageSize}
                 total={data ? data.count : 1}

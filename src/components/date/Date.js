@@ -1,23 +1,11 @@
 import "./date.css";
 import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
 
-const onChange = (date, dateString) => {
-    console.log(date, dateString);
-  };
-
-const Date = () => {
+const Date = ({dateChangeHandler}) => {
     return (
         <div className="datePicker">
-            <ul className="date-row">
-                <li><p>с</p></li>
-                <li>
-                    <DatePicker onChange={onChange} needConfirm />
-                </li>
-                <li><p>по</p></li>
-                <li>
-                    <DatePicker onChange={onChange} needConfirm />
-                </li>
-            </ul>
+            <RangePicker onChange={dateChangeHandler} format={'YYYY-MM-DD'} />
         </div>
       );
 }

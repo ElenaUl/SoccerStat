@@ -1,9 +1,10 @@
+import { useState } from "react";
 import Header from "../components/header/Header";
 import Breadcrumbs  from "../components/breadcrumb/Breadcrumb";
-import DatePicker from "../components/date/Date";
 import { Table, Tag } from 'antd';
 import { useParams } from 'react-router-dom';
 import { FetchData } from "../connection";
+import DatePicker from "../components/date/Date";
 
 const columns = [
     {
@@ -106,20 +107,29 @@ const columns = [
   ];
 
 const LeagueCalendar = () => {
-    const params = useParams();
-    const id = params.id;
-    const name = params.name;
-    const {data} = FetchData(`competitions/${id}/matches`);
+  const params = useParams();
+  const id = params.id;
+  const name = params.name;
 
-    return (
-        <>
-        <Header/>
-        <Breadcrumbs link={"/"} titleRef={'Лиги'} name={name}/>
-        <strong className="matches">Матчи</strong>
-        <DatePicker/>
-        <Table columns={columns} dataSource={data.matches}/>
-        </>
-    );
+  const [date, setDate] = useState([]);
+
+  const onChange = (_, dateString) => {
+    setDate(dateString);
+  };
+
+  const {data} = date.length > 1 && date[0] !== "" && date[1] !== ""
+    ? FetchData(`competitions/${id}/matches?dateFrom=${date[0]}&dateTo=${date[1]}`)
+    : FetchData(`competitions/${id}/matches`);
+
+  return (
+      <>
+      <Header/>
+      <Breadcrumbs link={"/"} titleRef={'Лиги'} name={name}/>
+      <strong className="matches">Матчи</strong>
+      <DatePicker dateChangeHandler={onChange} />
+      {data && data.matches && <Table columns={columns} dataSource={data.matches}/>}
+      </>
+  );
 }
  
 export default LeagueCalendar;

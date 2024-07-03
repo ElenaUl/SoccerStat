@@ -17,7 +17,7 @@ export function FetchData(url) {
       .then((json) => {
         setData(json);
       });
-  }, []);
+  }, [url]);
 
   return {data};
 }
