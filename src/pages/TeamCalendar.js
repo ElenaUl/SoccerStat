@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Header from "../components/header/Header";
 import Breadcrumbs  from "../components/breadcrumb/Breadcrumb";
 import DatePicker from "../components/date/Date";
@@ -106,21 +107,30 @@ const columns = [
     },
   ];
 
-const LeagueCalendar = () => {
+const TeamCalendar = () => {
     const params = useParams();
     const id = params.id;
     const name = params.name;
-    const {data} = FetchData(`teams/${id}/matches`);
     
+    const [date, setDate] = useState([]);
+
+    const onChange = (_, dateString) => {
+      setDate(dateString);
+    };
+
+    const {data} = date.length > 1 && date[0] !== "" && date[1] !== ""
+    ? FetchData(`teams/${id}/matches?dateFrom=${date[0]}&dateTo=${date[1]}`)
+    : FetchData(`teams/${id}/matches`);
+
     return (
         <>
         <Header/>
         <Breadcrumbs link={"./Teams"} titleRef={'Команды'} name={name}/>
         <strong className="matches">Матчи</strong>
-        <DatePicker />
+        <DatePicker dateChangeHandler={onChange}/>
         <Table columns={columns} dataSource={data.matches}/>
         </>
     );
 }
  
-export default LeagueCalendar;
+export default TeamCalendar;

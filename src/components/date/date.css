@@ -1,6 +1,7 @@
 .datePicker {
     display: flex;
-    padding: 0 30px;
+    padding: 0 15px;
+    margin-bottom: 10px;
 }
 
 .date-row {

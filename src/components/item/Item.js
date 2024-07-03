@@ -1,4 +1,6 @@
 import "./item.css";
+
+
 import { Card } from 'antd';
 
 const Item = ({leagueTitle, country, teamTitle, image}) => (
