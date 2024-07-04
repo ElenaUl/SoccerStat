@@ -95,14 +95,20 @@ const columns = [
       render: (team) => `${team.name != null ? team.name : ''}`,
     },
     {
-      title: 'X:Y (Z:G)',
+      title: 'Счёт',
       dataIndex: 'score',
       key: 'score',
       render: (score) => {
-            const ret = score.fullTime.home != null
-            ? `${score.fullTime.home} : ${score.fullTime.away} (${score.halfTime.home} : ${score.halfTime.away})`
-            : ``;
-            return ret;
+          let ret = score.fullTime && score.fullTime && score.fullTime.home != null && score.fullTime.away != null
+          ? `${score.fullTime.home} : ${score.fullTime.away}`
+          : ``;
+          ret += score.extraTime  && score.extraTime && score.extraTime.home != null && score.extraTime.away != null
+          ? ` (${score.extraTime.home} : ${score.extraTime.away})`
+          : ``;
+          ret += score.penalties && score.penalties && score.penalties.home != null && score.penalties.away != null
+          ? ` (${score.penalties.home} : ${score.penalties.away})`
+          : ``;
+          return ret;
         },
     },
   ];
@@ -125,7 +131,7 @@ const TeamCalendar = () => {
     return (
         <>
         <Header/>
-        <Breadcrumbs link={"./Teams"} titleRef={'Команды'} name={name}/>
+        <Breadcrumbs link={"/teams"} titleRef={'Команды'} name={name}/>
         <strong className="matches">Матчи</strong>
         <DatePicker dateChangeHandler={onChange}/>
         <Table columns={columns} dataSource={data.matches}/>
